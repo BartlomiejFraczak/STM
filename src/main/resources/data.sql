@@ -29,7 +29,7 @@ INSERT INTO tasks (
     DESCRIPTION,
     TYPE,
     STATUS,
-    USER_USER_ID)
+    USER_ID)
 VALUES (
     'pranie',
     'zrobic pranie',
@@ -42,12 +42,12 @@ INSERT INTO tasks (
     DESCRIPTION,
     TYPE,
     STATUS,
-    USER_USER_ID)
+    USER_ID)
 VALUES (
     'obiad',
     'ugotuj obiad',
     'TASK',
     'INPROGRESS',
-    1);
+    2);
 
 SCRIPT TO 'src/main/resources/DDL.sql'

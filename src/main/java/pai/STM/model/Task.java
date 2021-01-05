@@ -23,14 +23,8 @@ public class Task {
     @Enumerated(value = EnumType.STRING)
     private Status status;
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @ManyToOne(
-            fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL
-    )
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Task(String title, String description, Type type, Status status, User user) {
@@ -39,6 +33,9 @@ public class Task {
         this.type = type;
         this.status = status;
         this.user = user;
+    }
+
+    public Task() {
     }
 
     @Override
@@ -104,5 +101,9 @@ public class Task {
 
     public User getUser() {
         return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
