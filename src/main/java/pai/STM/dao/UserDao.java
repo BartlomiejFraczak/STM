@@ -16,33 +16,37 @@ public class UserDao {
     @Autowired
     TaskDao taskDao;
 
+    // a
     public User save(User user) {
         return repo.save(user);
     }
 
+    // b
     public List<User> findAll() {
         return repo.findAll();
     }
 
+    // c
     public User findOne(int id) {
         return repo.findById(id).orElse(null);
     }
 
+    // c
     public User findOne(String email) {
         return repo.findFirstByEmail(email).orElse(null);
-//        return repo.findAll().stream().filter(user -> user.getEmail().equals(email)).findFirst().orElse(null);
     }
 
+    // d
     public User changeStatus(int id) {
         User user = repo.getOne(id);
         user.setStatus(!user.isStatus());
         return repo.save(user);
     }
 
+    // e
     public void deleteById(int id) {
         taskDao.deleteByUser(findOne(id));
         repo.deleteById(id);
-
     }
 }
 

@@ -16,40 +16,37 @@ public class TaskDao {
     @Autowired
     TaskRepository repo;
 
-    UserDao userDao;
+    // e
+    public void deleteByUser(User user) {
+        repo.deleteByUser(user);
+    }
 
+    // f
     public Task save(Task task) {
         return repo.save(task);
     }
 
-    public List<Task> findAll() {
-        return repo.findAll();
-    }
-
-    public Task findOne(int id) {
-        return repo.findById(id).orElse(null);
-    }
-
-    public List<Task> findAll(String title) {
-        return repo.findAllByTitle(title);
-    }
-
-    public List<Task> findAll(Status status) {
-        return repo.findAllByStatus(status);
-    }
-
-    public List<Task> findAll(Type type) {
-        return repo.findAllByType(type);
-    }
-
-    public void deleteById(int id) {
-        repo.deleteById(id);
-    }
-
+    // g
     public List<Task> findAllSortedByDate() {
         return repo.findAllByOrderByDateAddedDesc();
     }
 
+    // h
+    public List<Task> findAll(String title) {
+        return repo.findAllByTitle(title);
+    }
+
+    // h
+    public List<Task> findAll(Status status) {
+        return repo.findAllByStatus(status);
+    }
+
+    // h
+    public List<Task> findAll(Type type) {
+        return repo.findAllByType(type);
+    }
+
+    // i
     public void changeStatus(int id) {
         Task task = repo.getOne(id);
         switch (task.getStatus()) {
@@ -66,9 +63,8 @@ public class TaskDao {
         repo.save(task);
     }
 
-    public void deleteByUser(User user) {
-        repo.deleteByUser(user);
+    // j
+    public void deleteById(int id) {
+        repo.deleteById(id);
     }
-
-
 }
